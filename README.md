@@ -19,8 +19,9 @@ Working with an AI assistant, people get lost in two directions at once:
 
 Each skill here cuts that chain at one point:
 
-- `ask-me-first` and `grill-my-plan` cut step 2. The model asks or challenges before it guesses.
-- `hand-over` cuts step 2 as well, by moving a derailed chat into a clean one.
+- `regroup` and `clarify` cut step 1. They shrink what you have to hold in your head, without losing the caveats.
+- `ask-me-first` and `grill` cut step 2. The model asks or challenges before it guesses.
+- `hand-over` and `pick-up` cut step 2 as well. Together they move a derailed chat into a clean one, and the new chat reads the handover cold before it starts.
 - `cold-read` cuts step 3. Someone finally reads the document without the context.
 - `humanize` cuts step 4. Text that reads as machine-written gets skimmed or distrusted, so your colleague pays less to read it.
 
@@ -28,15 +29,21 @@ Each skill here cuts that chain at one point:
 
 | Skill | What it does | If you only have one sentence |
 |---|---|---|
-| `hand-over` | Summarises a chat so you can continue in a fresh one, then checks the summary twice | "Summarise everything that matters so I can continue in a new chat. Then review it for completeness (is anything I told you missing?) and for sufficiency (could someone who never saw this chat carry on from it alone?). Fix what you find." |
-| `cold-read` | Reads a document as a newcomer and reports what only makes sense to its authors | In a **new** chat: "You have never seen the conversation that produced this. Quote every phrase that only makes sense with context you don't have, and tell me what to add." |
+| `hand-over` | Summarises a chat so you can continue in a fresh one. Checks the summary for completeness, then has a fresh-context reader check that it stands alone | "Summarise everything that matters so I can continue in a new chat. Then review it for completeness (is anything I told you missing?) and for sufficiency (could someone who never saw this chat carry on from it alone?). Fix what you find." |
+| `pick-up` | The other half: starts a fresh chat from a handover. Says what is unclear or missing before doing anything | In the new chat: "Before we start: what is unclear or missing in this?" |
+| `cold-read` | Gets a document read by a fresh-context reader and reports what only makes sense to its authors | In a **new** chat: "You have never seen the conversation that produced this. Quote every phrase that only makes sense with context you don't have, and tell me what to add." |
 | `ask-me-first` | Asks what only you can answer, one question at a time, each with a recommendation | "Before you start, ask me the questions only I can answer, one at a time, each with your recommendation. Anything you can work out yourself, work out." |
-| `grill-my-plan` | Challenges a plan before you commit to it | "Interrogate this plan before I commit. One concern at a time, only concerns that could change the plan, each with the risk and what you would do instead." |
+| `grill` | Challenges a plan, design, proposal or decision before you commit to it | "Interrogate this before I commit. One concern at a time, only concerns that could change the outcome, each with the risk and what you would do instead." |
+| `regroup` | Panic button for a chat that has lost the thread: what was decided, what is open, what was assumed, and a forced top three | "Stop. Don't answer anything new. List what we've decided, what's still open, and what you assumed without checking, at most seven each. Then give me the three things that matter." |
+| `clarify` | Re-explains a dense answer in plain language without dropping a caveat | "Explain that again in plain language. First list every caveat in your answer. Then rewrite it: what it means, how it works, one example, caveats last. Don't lose anything from your list." |
 | `humanize` | Rewrites text so it reads like a person wrote it | "Rewrite this so it sounds like a person wrote it. Cut filler and praise, use plain words, keep sentences short, say the thing directly." |
 
-`cold-read` only works in a fresh chat. In the chat where the text was written, the model
-already knows everything the text leaves out, so it cannot see the gaps. In Claude, use an
-incognito chat: a normal new chat can still search your past conversations.
+`cold-read` never does the reading in the chat where the text was written. There, the
+model already knows everything the text leaves out, so it cannot see the gaps. In Claude
+Code and Cowork the skill starts the plugin's `cold-reader` agent, which runs in its own
+context and is handed only the text. Where sub-agents are not available, such as Claude
+Desktop chat, the skill says so and gives you a block to paste into a new incognito chat.
+Incognito matters: a normal new chat can still search your past conversations.
 
 ## Install
 
