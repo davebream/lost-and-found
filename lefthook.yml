@@ -1,0 +1,9 @@
+pre-commit:
+  jobs:
+    - name: validate
+      run: python3 scripts/validate.py
+
+pre-push:
+  jobs:
+    - name: version-bumped
+      run: python3 scripts/validate.py --base origin/main
