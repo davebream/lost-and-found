@@ -1,0 +1,10 @@
+{
+  "name": "lost-and-found",
+  "version": "0.1.0",
+  "description": "Five instruction-only skills for two-sided context loss. Works in Claude Code and in Claude Desktop chat.",
+  "author": {
+    "name": "davebream"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/davebream/lost-and-found"
+}

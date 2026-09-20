@@ -1,0 +1,17 @@
+{
+  "name": "lost-and-found",
+  "owner": { "name": "davebream" },
+  "metadata": {
+    "description": "Small skills for the moment you and your AI lose each other: hand over a chat, cold-read a document, get asked before it guesses."
+  },
+  "plugins": [
+    {
+      "name": "lost-and-found",
+      "source": "./plugins/lost-and-found",
+      "description": "Five instruction-only skills for two-sided context loss. Works in Claude Code and in Claude Desktop chat.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "tags": ["context", "review", "handoff", "writing"]
+    }
+  ]
+}
