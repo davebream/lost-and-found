@@ -11,11 +11,37 @@ checks before it leaves. Its partner, `pick-up`, receives it on the other side.
 
 ## Steps
 
-### 1. Say what you can see
+### 1. Say what you can see, and go past the summary
 
-If earlier parts of this conversation have been summarised or dropped, say so first. You
-are then working from a summary, and the user may remember things you cannot see. Ask
-them to add anything important.
+Check whether earlier parts of this conversation have been summarised (compacted) or
+dropped. The signs: the conversation opens with a summary of itself, or the user refers to
+something you cannot quote. If so, say it first.
+
+**Go past the summary if you can.** A summary of a conversation is not the conversation. It
+keeps the outcome and loses the rules, the reasons and the things said once. So before you
+write anything, try to reach the real record:
+
+- The summary may name the full transcript file. If it does and you can read files, that
+  file is the record. Use it.
+- In Claude Code, this session's transcript is a `.jsonl` file named after the session id,
+  in the `projects` folder of the Claude config directory (`~/.claude/projects/` unless
+  `CLAUDE_CONFIG_DIR` points somewhere else). Open only the one that is this session's.
+- Anywhere else: notes or an earlier handover the user pointed at, or a tool for searching
+  past chats if you have one.
+
+A transcript can be many times larger than the room you have left. Never read it whole.
+Search it. Start with the user's own messages, because they hold the rules, the decisions
+and the corrections. Then search for the names and terms you are unsure about, and read only
+around the hits. If you can start a sub-agent, let it do the searching and bring back only
+what it found, so the transcript does not fill this conversation.
+
+If you cannot reach any record, say that plainly: you are working from a summary, and the
+user may remember things you cannot see. Ask them to add anything important before you draft.
+
+Either way, write down what the handover was built from. It goes on the second line of the
+handover, in one of these forms: "Written from: the full conversation", "Written from: a
+summary plus the transcript, searched", or "Written from: a summary only, not re-read". The
+next chat needs to know how far to trust it.
 
 If there is nothing meaningful to hand over, say so and stop. If the user wants to take
 stock and carry on here, not leave, use the `regroup` skill instead.
@@ -50,7 +76,8 @@ You can see the conversation. The cold reader cannot. So this check is yours alo
 
 Go through the table row by row and write down the row and what you found, before you
 patch anything. Anything present in the conversation but absent from the draft is a gap.
-Patch it.
+Patch it. If the conversation was summarised and you reached its transcript in step 1, check
+the draft against what you found there too, not only against the summary.
 
 ### 4. Check B, does it stand alone. Not yours to do
 

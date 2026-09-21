@@ -36,11 +36,27 @@ Stop pushing the problem forward. No "one more try". From here you only organise
 If earlier parts of this conversation were summarised or dropped, say so first. You are
 then reading a summary, not the conversation, and the user may remember things it lost.
 
-If a fuller record exists and you can really read it, use it: a transcript, saved notes,
-a handover. Only reach for one the user pointed at, or one that is plainly this
-conversation's own record. Do not go looking through files: a conversation this long has
-little room to spare. In a plain chat there is usually no such record, and that is fine.
-Say what you read. Mark anything reconstructed from a summary as "recovered, not re-read".
+**Go past the summary if you can.** A summary of a conversation is not the conversation. It
+keeps the outcome and loses the rules, the reasons and the things said once. So before you
+write anything, try to reach the real record:
+
+- The summary may name the full transcript file. If it does and you can read files, that
+  file is the record. Use it.
+- In Claude Code, this session's transcript is a `.jsonl` file named after the session id,
+  in the `projects` folder of the Claude config directory (`~/.claude/projects/` unless
+  `CLAUDE_CONFIG_DIR` points somewhere else). Open only the one that is this session's.
+- Anywhere else: notes or an earlier handover the user pointed at, or a tool for searching
+  past chats if you have one.
+
+A transcript can be many times larger than the room you have left. Never read it whole.
+Search it. Start with the user's own messages, because they hold the rules, the decisions
+and the corrections. Then search for the names and terms you are unsure about, and read only
+around the hits. If you can start a sub-agent, let it do the searching and bring back only
+what it found, so the transcript does not fill this conversation.
+
+Only reach for a record the user pointed at, or one that is plainly this conversation's own.
+In a plain chat there is usually no such record, and that is fine. Say what you read. Mark
+anything that comes from a summary you could not check as "recovered, not re-read".
 
 ### 3. First pass: collect
 
@@ -106,7 +122,7 @@ Give the result as one block the user can copy out of the chat, in this shape:
 
 ```
 Regroup, <date and time>
-Read: <this conversation / transcript / notes>
+Read: <this conversation / a summary plus the transcript, searched / a summary only / notes>
 Gaps in what I could see: <none / earlier parts were summarised, those items are marked>
 From early on, easy to miss: <quote it, or "nothing the first pass had missed">
 Said in passing, never closed: <quote it, or "nothing the first pass had missed">

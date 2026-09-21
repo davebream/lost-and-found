@@ -39,6 +39,9 @@ best cold reader this document will ever get. Use that before it wears off.
 
 5. **Check it is still current.** If the handover carries a date and is more than a
    couple of days old, or mentions things that may have moved on, say so.
+   Look for its "Written from:" line too. If it says the handover came from a summary only,
+   tell the user: parts of the old conversation were never re-read, so rules and reasons
+   may be missing, and the old chat or its transcript is where to look.
 
 6. **Ask how to proceed:** continue from the next step, go through the full handover
    together, or start something different. Wait for the answer.

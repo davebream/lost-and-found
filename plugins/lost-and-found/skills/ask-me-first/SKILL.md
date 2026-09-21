@@ -19,7 +19,12 @@ overload, so ask well.
    - **Only the user knows:** a preference, a priority, a trade-off they own, a fact
      about their situation. These get asked.
    - **You can find out:** the answer is in the conversation, the files, or something
-     you can look up. Go and find out. Do not ask.
+     you can look up. Go and find out. Do not ask. If earlier parts of this conversation
+     were summarised, the answer may have been given there and lost. Where you can reach
+     the full transcript (the summary may name the file; in Claude Code it is a `.jsonl`
+     file under the `projects` folder of the Claude config directory), search the user's
+     messages in it before you ask. Asking twice what was already answered is the most
+     expensive question there is.
    - **Does not matter yet:** a sensible default exists. Take it and say which default
      you took.
 

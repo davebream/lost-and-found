@@ -16,8 +16,11 @@ a boundary condition that matters. Plain language is for experts too.
    mean, ask one short question first.
 
    If the original may have been summarised or dropped from this conversation, say so.
-   Caveats are the first thing a summary loses. Never present a rewrite of a summary as a
-   clarification of the original.
+   Then try to get the original back before you rewrite: the summary may name the full
+   transcript file, and in Claude Code the session's transcript is a `.jsonl` file under
+   the `projects` folder of the Claude config directory. Search it for the explanation,
+   never read it whole. Caveats are the first thing a summary loses. Never present a
+   rewrite of a summary as a clarification of the original.
 
 2. **List the caveats first.** Before rewriting anything, list every caveat, condition,
    exception and "only when" in the original, and number them. **Show the numbered list

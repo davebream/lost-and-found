@@ -236,6 +236,12 @@ skill says so and gives you a block to paste into a new incognito chat.
 > Incognito matters. A normal new chat can still search your past conversations, so it is not
 > a truly fresh reader.
 
+**Long chats get summarised behind your back.** When a conversation grows too long, most AI
+tools quietly replace the early part with a summary, and a summary loses rules and reasons
+first. `hand-over`, `regroup`, `clarify` and `ask-me-first` check for that. Where the full
+record can still be reached, as in Claude Code, they search it and do not trust the summary
+alone. Where it cannot, they tell you, so you can add what you remember.
+
 ## One setting worth changing
 
 Add this to your assistant's standing instructions. In Claude: **Settings**, then the
