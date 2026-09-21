@@ -284,6 +284,13 @@ know something, say "unknown" instead of guessing.
 
 </details>
 
+## Related
+
+[glosa](https://github.com/davebream/glosa) is the tool these skills grew out of. It gives
+you a calm page to read what your AI wrote and to point at the exact sentence you want to
+change, instead of describing it in the chat. It runs in Claude Code and Codex, so it is for
+people who already work in a terminal.
+
 ## Licence
 
 MIT. See [LICENSE](LICENSE).
