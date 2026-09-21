@@ -11,7 +11,7 @@
       "name": "lost-and-found",
       "source": "./plugins/lost-and-found",
       "description": "Eight instruction-only skills and a cold-reader agent for two-sided context loss. Works in Claude Code and in Claude Desktop chat.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "category": "productivity",
       "tags": [
         "context",
