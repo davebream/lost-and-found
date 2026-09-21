@@ -67,10 +67,18 @@ full name is `lost-and-found:cold-reader`. Pass it **only** a title of the form 
 handover: <topic>`, the full draft, and the kind of document, `session handover`. Do not
 pass this conversation or anything about it. That would defeat the test.
 
+For a long draft, do not retype it into the prompt, where small differences creep in.
+Save the draft alone in a new, empty folder and pass that one path in place of the text.
+The folder must be empty because the agent can read files, and anything else in there is
+context it was not meant to have.
+
 Apply its blocking findings. Take the facts from this conversation, never from
 imagination. If a gap cannot be filled from what is known, say so in the draft ("reason
 not recorded"). If there were blocking findings, run the agent **once more** on the
-patched draft, and no more than that. If the agent cannot be started or returns nothing,
+patched draft, and no more than that. Start a **new** agent for the second pass. Do not
+continue the first one: it has read the earlier draft and is no longer cold. Minor
+findings from the final pass are yours to judge: apply the cheap ones, skip the rest, and
+do not run a third pass for them. If the agent cannot be started or returns nothing,
 retry once, then deliver anyway with a first line saying the cold read did not run.
 **Never report a verdict you did not receive.**
 
@@ -85,16 +93,19 @@ run. I cannot judge this draft cold, because I wrote it. The new chat is the rea
 Do not deliver until Check B has either run or been reported as not run. The draft always
 looks fine to you.
 
-Give the final handover as one block the user can copy.
+If you can write files here, save the handover, so the new session can find it without
+any pasting. Then show the user the path and the gate line below, not the whole text: the
+file is the delivery, and a long block in the chat only repeats it. Print the text if they
+ask. If you cannot write files, give the final handover as one block the user can copy.
 
-If you can write files here, also save it, so the new session can find it without any
-pasting. Use `.claude/handover.md` in the project folder when you are in Claude Code or
+Where to save it: use `.claude/handover.md` in the project folder when you are in Claude Code or
 the folder already has a `.claude` directory. Otherwise use `handover.md` in the working
 folder. Put the date and time on the first line. Overwrite an older handover at that path
 instead of adding a second file. Tell the user where you saved it, and that the file is
 not hidden from git unless they ignore it, in case it holds something private.
 
-Then report the gate in one line, quoting a real finding. Counts are easy to invent; a
+Then report the gate in one line, quoting a real finding. If the cold reader said project
+instructions or memory were in its context, pass that on. Counts are easy to invent; a
 quote is not. For example: "Completeness: 2 gaps patched. Cold read: NEEDS_CONTEXT.
 Biggest finding: 'the earlier approach' had no referent. Second pass: STANDS_ALONE."
 

@@ -41,7 +41,9 @@ text in front of a reader with a fresh context, and then help fix what that read
    **Branch A, you can start a sub-agent.** Start this plugin's `cold-reader` agent. Its
    full name is `lost-and-found:cold-reader`. Pass it **only** three things: a title, the
    full text, and the kind of document. Do not pass this conversation, a summary of it,
-   the recipient's background, or any hint about what to look for.
+   the recipient's background, or any hint about what to look for. For a long text, save
+   it alone in a new, empty folder and pass that one path in place of the text. The folder
+   must be empty, because the agent can read files.
 
    If the agent cannot be started or returns nothing, try once more and say in one line
    what happened. If it still fails, tell the user there is no cold read yet, and move to
@@ -99,11 +101,13 @@ text in front of a reader with a fresh context, and then help fix what that read
    say so in the text ("reason not recorded").
 
 5. **Check once more, at most.** If there were blocking findings, run the cold read one
-   more time on the fixed text. In branch B that means **another new incognito chat**, not
-   the one that gave the findings. That reader has seen the first version and is no
-   longer cold.
+   more time on the fixed text, with a reader that has not seen the first version. In
+   branch A that means starting a **new** agent, not continuing the first one. In branch
+   B it means **another new incognito chat**. Minor findings from the final pass are yours
+   to judge: apply the cheap ones and do not run a third pass for them.
 
-6. **Report in a line or two:** the verdict, and the biggest finding, quoted.
+6. **Report in a line or two:** the verdict, and the biggest finding, quoted. If the cold
+   reader said project instructions or memory were in its context, pass that on.
 
 ## What to look for
 

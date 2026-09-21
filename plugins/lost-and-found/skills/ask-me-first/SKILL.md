@@ -12,7 +12,8 @@ overload, so ask well.
 ## Steps
 
 1. **List what you do not know.** Work out every open question about the task, without
-   showing the list yet.
+   showing the list yet. If you were started with no task at all, then which task to work
+   on is the first question. Offer the candidates you can see in the conversation.
 
 2. **Sort them.**
    - **Only the user knows:** a preference, a priority, a trade-off they own, a fact
