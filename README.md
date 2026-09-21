@@ -29,7 +29,7 @@ Start from what just happened to you.
 |---|---|---|
 | The chat went in circles and you no longer know what was decided | `regroup` | One ordered list: what was decided, what is open, what was assumed |
 | The answer is probably right but too dense to take in | `clarify` | The same answer in plain language, with every caveat kept |
-| You are about to give the AI a task, and it usually guesses wrong | `ask-me-first` | The questions only you can answer, one at a time, each with a recommendation |
+| The AI is about to guess, or has a pile of questions for you | `one-by-one` | The questions only you can answer, one at a time, each with a recommendation |
 | You have a plan and want it tested before you commit | `grill` | Your plan challenged, worst concern first |
 | Correcting the chat no longer works and you want to start over | `hand-over` | A checked summary you can carry into a fresh chat |
 | You are starting a new chat from a summary | `pick-up` | The AI says what is unclear or missing before it does any work |
@@ -48,7 +48,7 @@ When you work with an AI assistant, context gets lost in both directions. Then i
 | Step | What goes wrong | Skills that help |
 |:---:|---|---|
 | 1 | The AI writes more than you can read, so **you get lost in its output**. | `regroup`, `clarify` |
-| 2 | You correct it bit by bit, so **it gets lost in your conversation**. Models tend to guess early, commit to the guess, and not recover ([Laban et al., 2025](https://arxiv.org/abs/2505.06120)). | `ask-me-first`, `grill`, `hand-over`, `pick-up` |
+| 2 | You correct it bit by bit, so **it gets lost in your conversation**. Models tend to guess early, commit to the guess, and not recover ([Laban et al., 2025](https://arxiv.org/abs/2505.06120)). | `one-by-one`, `grill`, `hand-over`, `pick-up` |
 | 3 | Between you, you produce a document. **Neither of you checks** whether it makes sense to someone who was not there. | `cold-read` |
 | 4 | You send it to a colleague. They had none of the context, and **now it is their problem**. | `humanize` |
 
@@ -56,7 +56,7 @@ Each skill cuts that chain at one point:
 
 - `regroup` puts everything in one ordered list, so you can stop holding it in your head.
   `clarify` makes a dense answer smaller without losing a caveat.
-- `ask-me-first` and `grill` make the AI ask or challenge before it guesses.
+- `one-by-one` and `grill` make the AI ask or challenge before it guesses.
 - `hand-over` and `pick-up` work as a pair. Together they move a derailed chat into a clean
   one, and the new chat reads the handover cold before it starts.
 - `cold-read` means someone finally reads the document without the context.
@@ -97,13 +97,15 @@ Don't lose anything from your list.
 </details>
 
 <details>
-<summary><b><code>ask-me-first</code></b>: questions before guesses</summary>
+<summary><b><code>one-by-one</code></b>: questions one at a time, not a wall of them</summary>
 
-Asks what only you can answer, one question at a time, each with a recommendation.
+Asks what only you can answer, one question at a time, each with a short background and a
+recommendation. Works before a task, in the middle of one, or after a review.
 
 ```text
-Before you start, ask me the questions only I can answer, one at a time, each
-with your recommendation. Anything you can work out yourself, work out.
+Ask me the questions only I can answer, one at a time, each with a short
+background and your recommendation. Anything you can work out yourself, work
+out. When we are done, list what we decided.
 ```
 
 </details>
@@ -238,7 +240,7 @@ skill says so and gives you a block to paste into a new incognito chat.
 
 **Long chats get summarised behind your back.** When a conversation grows too long, most AI
 tools quietly replace the early part with a summary, and a summary loses rules and reasons
-first. `hand-over`, `regroup`, `clarify` and `ask-me-first` check for that. Where the full
+first. `hand-over`, `regroup`, `clarify` and `one-by-one` check for that. Where the full
 record can still be reached, as in Claude Code, they search it and do not trust the summary
 alone. Where it cannot, they tell you, so you can add what you remember.
 
@@ -256,7 +258,7 @@ know something, say "unknown" instead of guessing.
 
 - **They are instructions, not programs.** Nothing here enforces a step or stops the AI from
   skipping one. They make the right behaviour the default. They do not guarantee it.
-- **Two of them are conversations by design.** `ask-me-first` and `grill` are back and
+- **Two of them are conversations by design.** `one-by-one` and `grill` are back and
   forth, and long conversations are exactly where models lose the thread. Both carry a
   stopping rule for that reason.
 - **The idea underneath `cold-read` is a design bet.** A fresh context catches what the
