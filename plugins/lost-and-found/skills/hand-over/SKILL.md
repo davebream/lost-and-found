@@ -85,8 +85,14 @@ run. I cannot judge this draft cold, because I wrote it. The new chat is the rea
 Do not deliver until Check B has either run or been reported as not run. The draft always
 looks fine to you.
 
-Give the final handover as one block the user can copy. If you can write files here,
-offer to save it too, and say where you saved it.
+Give the final handover as one block the user can copy.
+
+If you can write files here, also save it, so the new session can find it without any
+pasting. Use `.claude/handover.md` in the project folder when you are in Claude Code or
+the folder already has a `.claude` directory. Otherwise use `handover.md` in the working
+folder. Put the date and time on the first line. Overwrite an older handover at that path
+instead of adding a second file. Tell the user where you saved it, and that the file is
+not hidden from git unless they ignore it, in case it holds something private.
 
 Then report the gate in one line, quoting a real finding. Counts are easy to invent; a
 quote is not. For example: "Completeness: 2 gaps patched. Cold read: NEEDS_CONTEXT.
@@ -94,8 +100,9 @@ Biggest finding: 'the earlier approach' had no referent. Second pass: STANDS_ALO
 
 ### 6. Point to the other side
 
-Tell the user to open a new chat and start it with the `pick-up` skill, or, without this
-plugin, to paste the block with this as the first message:
+Tell the user to open a new chat and start it with the `pick-up` skill. If you saved a
+file, `pick-up` finds it by itself. If not, they paste the block. Without this plugin,
+they paste the block with this as the first message:
 
 > Before we start, and before you do any work: what is unclear or missing in this?
 

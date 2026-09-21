@@ -38,6 +38,10 @@ Each skill here cuts that chain at one point:
 | `clarify` | Re-explains a dense answer in plain language without dropping a caveat | "Explain that again in plain language. First list every caveat in your answer. Then rewrite it: what it means, how it works, one example, caveats last. Don't lose anything from your list." |
 | `humanize` | Rewrites text so it reads like a person wrote it | "Rewrite this so it sounds like a person wrote it. Cut filler and praise, use plain words, vary sentence length, say the thing directly." |
 
+Where files can be written, as in Claude Code, `hand-over` saves to `.claude/handover.md`
+and `pick-up` finds it there, so nothing needs pasting. In a plain chat you copy the block
+across yourself.
+
 `cold-read` never does the reading in the chat where the text was written. There, the
 model already knows everything the text leaves out, so it cannot see the gaps. In Claude
 Code and Cowork the skill starts the plugin's `cold-reader` agent, which runs in its own
