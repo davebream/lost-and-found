@@ -1,6 +1,6 @@
 {
   "name": "lost-and-found",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Eight instruction-only skills and a cold-reader agent for two-sided context loss. Works in Claude Code, Cowork and Claude Desktop chat. The agent needs sub-agents, so not Desktop chat.",
   "author": {
     "name": "davebream"

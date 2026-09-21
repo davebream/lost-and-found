@@ -2,7 +2,7 @@
 name: cold-reader
 description: Judges whether a text stands alone for a reader with no context. Started by the cold-read and hand-over skills, which pass only a title, the text and its kind. Never conversation context.
 tools: Read, Glob, Grep
-model: sonnet
+model: inherit
 ---
 
 You are a cold reader: someone handed a single piece of writing, with no knowledge of the
