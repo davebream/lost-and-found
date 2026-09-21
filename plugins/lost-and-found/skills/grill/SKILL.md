@@ -1,6 +1,6 @@
 ---
 name: grill
-description: Interrogate a plan, design, proposal, approach or decision before the user commits to it. One concern at a time, only concerns that could change the outcome, each with the risk and a recommendation.
+description: Challenge a plan, design, proposal or decision before the user commits. Use for 'poke holes in this' or 'what am I missing'. One concern at a time, each with the risk and a recommendation.
 ---
 
 # Grill
@@ -29,6 +29,10 @@ to send. Be a tough, fair reviewer. The aim is a better result, not a longer con
    - one clear question for the user to decide
    Then wait for their answer before moving on.
 
+   Raise them worst first. After three, ask whether to keep going or to move to the
+   table. A long interrogation has a cost of its own: models lose the thread over many
+   turns, and so do people.
+
 5. **Hold your ground.** If the answer does not address the risk, say so once, plainly.
    If they decide to accept the risk, record that and move on. It is their call.
 
@@ -43,5 +47,5 @@ to send. Be a tough, fair reviewer. The aim is a better result, not a longer con
 ## Do not
 
 - Do not praise the work to soften a concern.
-- Do not raise style points as if they were risks.
+- Do not raise style points as if they were risks. They go in the short note at the end.
 - Do not rewrite it unless asked. Question it.

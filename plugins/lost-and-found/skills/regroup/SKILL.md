@@ -1,6 +1,6 @@
 ---
 name: regroup
-description: Panic button for a long conversation that has lost the thread. Stops, re-reads it three times, then reports what was decided, what is open and what was assumed, grouped by importance.
+description: Panic button for a long chat that has lost the thread, when you want to take stock and stay. Reads back for what got buried, then reports decisions, open items and assumptions by importance.
 ---
 
 # Regroup
@@ -22,6 +22,9 @@ Two things you must not do, without exception:
 - **Do not propose new ideas or new analysis.** Write down what already exists in this
   conversation, then stop.
 
+Organising does include saying what to do next and which way out you recommend. It does
+not include solving the open question, or raising an option this conversation never raised.
+
 ## Steps
 
 ### 1. Freeze
@@ -33,9 +36,11 @@ Stop pushing the problem forward. No "one more try". From here you only organise
 If earlier parts of this conversation were summarised or dropped, say so first. You are
 then reading a summary, not the conversation, and the user may remember things it lost.
 
-If you have access to the fuller record, use it: a transcript file, saved notes, a
-handover, the project's files or history. Say which of these you read. Mark anything you
-are reconstructing from a summary as "recovered, not re-read".
+If a fuller record exists and you can really read it, use it: a transcript, saved notes,
+a handover. Only reach for one the user pointed at, or one that is plainly this
+conversation's own record. Do not go looking through files: a conversation this long has
+little room to spare. In a plain chat there is usually no such record, and that is fine.
+Say what you read. Mark anything reconstructed from a summary as "recovered, not re-read".
 
 ### 3. First pass: collect
 
@@ -55,9 +60,10 @@ disagreement, so nobody checked it.
 
 ### 4. Second and third pass: go back and look again
 
-Do not show anything yet. A first pass over a long conversation favours what is recent
-and what was loud. Go back through the conversation, and the fuller record if you have
-it, **two more times**, each with a different question:
+Do not present the final result yet, but do write down what each pass finds as you go.
+Work you only did in your head cannot be checked, by the user or by you. A first pass over
+a long conversation favours what is recent and what was loud. Go back through it, and the
+fuller record if you have one, **two more times**, each with a different question:
 
 - **Pass two, the beginning and the middle.** What was set early and then buried: the
   original goal, standing constraints, preferences stated once, things the user said
@@ -65,7 +71,9 @@ it, **two more times**, each with a different question:
 - **Pass three, the quiet items.** Small corrections, side remarks, "also" and "by the
   way", things agreed in half a sentence, items that were deferred and never picked up.
 
-Add what you find to the lists. If a pass finds nothing new, say so. That is a result too.
+Each pass ends with a written list of what it found, quoted from the conversation. Write
+both before you sort anything. If a pass finds nothing new, write "nothing new". That is a
+result too. Then add what you found to the lists.
 
 ### 5. Drift check
 
@@ -98,7 +106,10 @@ Give the result as one block the user can copy out of the chat, in this shape:
 
 ```
 Regroup, <date and time>
-Read: <this conversation / transcript / notes>. Passes: 3. <what passes two and three added>
+Read: <this conversation / transcript / notes>
+Gaps in what I could see: <none / earlier parts were summarised, those items are marked>
+From early on, easy to miss: <quote it, or "nothing the first pass had missed">
+Said in passing, never closed: <quote it, or "nothing the first pass had missed">
 
 Matters now
 1. <item>, <why now>
@@ -139,11 +150,8 @@ Tell the user plainly which one you recommend, and why.
 - **Carry on here.** The assumptions hold. Resume from "Start here".
 - **Restart clean.** An early assumption looks wrong, and later work was built on it. Do
   not keep arguing in this thread. Use the `hand-over` skill to write one self-contained
-  message for a fresh chat, with two additions:
-  - copy the user's constraints **word for word**. Standing rules are the first thing a
-    summary loses.
-  - list the ideas already rejected, and why. Without that, the new chat proposes them
-    again.
+  message for a fresh chat. It copies the user's constraints word for word and records
+  what was rejected, so the new chat does not propose the same ideas again.
 
 ## Do not
 

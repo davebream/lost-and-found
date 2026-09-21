@@ -10,28 +10,38 @@ or a chatbot reply, rewrite it.
 
 ## Rules
 
-**Cut flattery and throat-clearing.** No "Great question", "Certainly", "I hope this
-helps". No announcing what you are about to do. No stacked hedges.
+These are signals, not bans. If the plain alternative would change the meaning, keep the
+word. A rule list like this one is a fair place for short headings. Ordinary prose is not.
 
-**Cut inflated words.** delve, landscape, tapestry, leverage, foster, showcase,
-underscore, pivotal, crucial, vibrant, seamless, robust, comprehensive, cutting-edge,
-groundbreaking, testament. Also "serves as" when "is" works, and "it is important to
-note that" when you could just say the thing.
+### Flattery and throat-clearing
 
-**Cut structural habits.**
+Cut "Great question", "Certainly" and "I hope this helps". Cut announcements of what you
+are about to do. Cut stacked hedges.
+
+### Inflated words
+
+delve, landscape, tapestry, leverage, foster, showcase, underscore, pivotal, crucial,
+vibrant, seamless, robust, comprehensive, cutting-edge, groundbreaking, testament. Also
+"serves as" when "is" works, and "it is important to note that" when you could just say
+the thing.
+
+### Structural habits
+
 - bullet lists where every item is a bold label followed by an explanation
 - lists of exactly three for rhythm's sake
 - emoji as decoration
 - Title Case Headings
 - a closing section that summarises what was just said
 
-**Cut style tics.**
+### Style tics
+
 - dashes used as a pause. Use a comma or a full stop
 - "It's not just X, it's Y"
 - a different fancy word for the same thing each time
 - "in order to" when "to" works
 
-**Write like a person.**
+### Write like a person
+
 - Vary sentence length. Short ones work. So do longer ones that carry an idea across a
   clause or two.
 - Be specific. "Cuts the load time in half" beats "improves performance".

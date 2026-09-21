@@ -1,6 +1,6 @@
 ---
 name: clarify
-description: Re-explain something that was correct but too dense to absorb, in plain language, without dropping a single caveat. Use after an answer that was hard to follow.
+description: Re-explain something correct but too dense, in plain language, without dropping a caveat. Use when the user says they don't follow, asks for it simpler, or asks you to explain again.
 ---
 
 # Clarify
@@ -20,8 +20,9 @@ a boundary condition that matters. Plain language is for experts too.
    clarification of the original.
 
 2. **List the caveats first.** Before rewriting anything, list every caveat, condition,
-   exception and "only when" in the original, and number them. This list is the contract
-   for step 6.
+   exception and "only when" in the original, and number them. **Show the numbered list
+   in the chat.** It does not stay in your head: a list you did not write down is a
+   feeling again. This list is the contract for step 6.
 
    Do this before the rewrite, not after. Asked afterwards "does this look complete?",
    the same model that just compressed the text will say yes. A list written beforehand
@@ -59,3 +60,4 @@ a boundary condition that matters. Plain language is for experts too.
 - Do not skip a step because it feels obvious to you. It was not obvious to the reader.
 - Do not put exceptions before the main idea.
 - Do not change the accuracy, soften a real limitation, or pad.
+- If `humanize` also applies to the same text, clarify first, then humanize.

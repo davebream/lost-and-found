@@ -1,6 +1,6 @@
 ---
 name: hand-over
-description: Capture a conversation so it can continue in a fresh chat or be passed to someone else. Checks the summary for completeness, then has a fresh-context cold reader check that it stands alone.
+description: Capture this whole conversation so it can continue in a fresh chat. Use when a chat has gone off the rails or is too long. Checks it for completeness, then a cold reader checks it stands alone.
 ---
 
 # Hand over
@@ -17,7 +17,8 @@ If earlier parts of this conversation have been summarised or dropped, say so fi
 are then working from a summary, and the user may remember things you cannot see. Ask
 them to add anything important.
 
-If there is nothing meaningful to hand over, say so and stop.
+If there is nothing meaningful to hand over, say so and stop. If the user wants to take
+stock and carry on here, not leave, use the `regroup` skill instead.
 
 ### 2. Draft it, and hold it
 
@@ -47,42 +48,59 @@ You can see the conversation. The cold reader cannot. So this check is yours alo
 | Blockers | Each one is recorded, with what it blocks |
 | Next step | Exactly one is named |
 
-Anything present in the conversation but absent from the draft is a gap. Patch it.
+Go through the table row by row and write down the row and what you found, before you
+patch anything. Anything present in the conversation but absent from the draft is a gap.
+Patch it.
 
 ### 4. Check B, does it stand alone. Not yours to do
 
-You cannot judge this yourself. You already know everything the draft leaves out.
+You cannot judge this yourself. You already know everything the draft leaves out. Never
+write the cold reader's answer yourself.
 
-**If you can start sub-agents** (Claude Code, Cowork): you must start this plugin's
-`cold-reader` agent. Pass it **only** a title of the form `Session handover: <topic>`, the
-full draft, and the kind of document, `session handover`. Do not pass this conversation
-or anything about it. That would defeat the test.
+**Which branch you are in.** Look at the tools you actually have in this session. If one
+of them starts a sub-agent or a task, you can run Check B. If no such tool is in your
+list, you cannot. Decide this from your tool list only, not from the product name. **If
+you are not sure, assume you cannot.**
+
+**If you can start a sub-agent:** you must start this plugin's `cold-reader` agent. Its
+full name is `lost-and-found:cold-reader`. Pass it **only** a title of the form `Session
+handover: <topic>`, the full draft, and the kind of document, `session handover`. Do not
+pass this conversation or anything about it. That would defeat the test.
 
 Apply its blocking findings. Take the facts from this conversation, never from
 imagination. If a gap cannot be filled from what is known, say so in the draft ("reason
 not recorded"). If there were blocking findings, run the agent **once more** on the
 patched draft, and no more than that. If the agent cannot be started or returns nothing,
 retry once, then deliver anyway with a first line saying the cold read did not run.
+**Never report a verdict you did not receive.**
 
-**If you cannot start sub-agents** (for example Claude Desktop chat): reread the draft
-and rewrite every phrase that leans on this conversation, such as "the earlier approach"
-or "as discussed". Then tell the user plainly that this check is weaker than a real cold
-read, and that `pick-up` in the new chat does the real one.
+**If you cannot:** you cannot run Check B. Do a self-reference sweep instead, which is a
+different and weaker thing. Search the draft for phrases such as: as discussed, as agreed,
+the earlier, the new, this approach, that fix, the issue, the file, we decided. For each
+hit, replace the phrase with the thing itself. Then tell the user plainly: "Check B did not
+run. I cannot judge this draft cold, because I wrote it. The new chat is the real check."
 
 ### 5. Deliver
+
+Do not deliver until Check B has either run or been reported as not run. The draft always
+looks fine to you.
 
 Give the final handover as one block the user can copy. If you can write files here,
 offer to save it too, and say where you saved it.
 
-Then report the gate in one line, for example: "Completeness: 2 gaps patched. Cold read:
-NEEDS_CONTEXT, 3 blocking findings fixed, second pass STANDS_ALONE."
+Then report the gate in one line, quoting a real finding. Counts are easy to invent; a
+quote is not. For example: "Completeness: 2 gaps patched. Cold read: NEEDS_CONTEXT.
+Biggest finding: 'the earlier approach' had no referent. Second pass: STANDS_ALONE."
 
 ### 6. Point to the other side
 
 Tell the user to open a new chat and start it with the `pick-up` skill, or, without this
 plugin, to paste the block with this as the first message:
 
-> Before we start: what is unclear or missing in this?
+> Before we start, and before you do any work: what is unclear or missing in this?
+
+**Ask them to keep this chat open** until the new one confirms the handover stands alone.
+If the new chat finds gaps, the answers are here, not there.
 
 ## Do not
 

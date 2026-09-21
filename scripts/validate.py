@@ -37,7 +37,8 @@ if entry is None:
 elif entry.get("version") != manifest.get("version"):
     fail(f"version mismatch: plugin.json {manifest.get('version')} != marketplace {entry.get('version')}")
 
-# 2. Skills: name matches its folder, limits that Claude Desktop enforces on upload.
+# 2. Skills: name matches its folder. 64 and 200 are the limits Anthropic documents for
+#    skills uploaded one by one; keeping to them means any skill here can also be uploaded alone.
 skills = sorted(p.parent.name for p in PLUGIN.glob("skills/*/SKILL.md"))
 for s in skills:
     fm = frontmatter(PLUGIN / "skills" / s / "SKILL.md")
@@ -54,8 +55,11 @@ for s in skills:
 # 3. Agents: name matches its file, and every agent a skill relies on exists.
 agents = sorted(p.stem for p in PLUGIN.glob("agents/*.md"))
 for a in agents:
-    if frontmatter(PLUGIN / "agents" / f"{a}.md").get("name") != a:
+    afm = frontmatter(PLUGIN / "agents" / f"{a}.md")
+    if afm.get("name") != a:
         fail(f"agents/{a}.md: frontmatter name does not match the file")
+    if len(afm.get("description", "")) > 200:
+        fail(f"agents/{a}.md: description is {len(afm['description'])} characters, the house limit is 200")
 for s in skills:
     text = (PLUGIN / "skills" / s / "SKILL.md").read_text(encoding="utf-8")
     for ref in set(re.findall(r"`([a-z][a-z0-9-]+)`\s+agent", text)):
@@ -77,7 +81,7 @@ for label, desc in (("plugin.json", manifest.get("description", "")), ("marketpl
         fail(f"{label} says {m.group(1)} skills, there are {len(skills)}")
 
 # 5. House style: no em or en dashes anywhere in the prose. humanize promises it.
-for path in list(ROOT.glob("*.md")) + list(PLUGIN.rglob("*.md")):
+for path in list(ROOT.glob("*.md")) + list(PLUGIN.rglob("*.md")) + list(ROOT.rglob(".claude-plugin/*.json")):
     text = path.read_text(encoding="utf-8")
     for ch, label in (("—", "em dash"), ("–", "en dash")):
         if ch in text:
